@@ -107,7 +107,7 @@ public class Servidor extends Thread {
 			while (true) {
 				System.out.println("Aguardando alguma conexão...");
 				Socket conexao = s.accept();
-				System.out.println("O Cliente conectou...");
+				System.out.println("O "+ nomeCliente +" conectou...");
 				Thread t = new Servidor(conexao);
 				t.start();
 			             }
