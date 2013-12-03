@@ -76,6 +76,7 @@ public class Servidor extends Thread {
 		}
 	}
 	
+	/// MAIN APENAS PARA TESTE INTERNO, JA EXPORTADO PARA O BOTAO DO SERVIDORGUI
 	
 //	public static void main(String[] args) {
 //		clientes = new Vector ();
