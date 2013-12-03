@@ -20,6 +20,10 @@ public class Servidor extends Thread {
 		conexao = s;
 	}
 	
+	public Servidor() {
+	
+	}
+
 	//inicio da thread do servidor
 	public void run() {
 		
@@ -73,7 +77,28 @@ public class Servidor extends Thread {
 	}
 	
 	
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//		clientes = new Vector ();
+//
+//		try {
+//			ServerSocket s = new ServerSocket(2222);
+//
+//			while (true) {
+//				System.out.println("Aguardando alguma conexão...");
+//				Socket conexao = s.accept();
+//				System.out.println("O Cliente conectou...");
+//				Thread t = new Servidor(conexao);
+//				t.start();
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//
+//	}
+	
+	public void inicia() {
+		
+
 		clientes = new Vector ();
 		
 		try {
@@ -89,6 +114,8 @@ public class Servidor extends Thread {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
+	
 		
 	}
 }
