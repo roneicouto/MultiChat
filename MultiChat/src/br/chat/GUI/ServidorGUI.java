@@ -93,13 +93,13 @@ public class ServidorGUI extends JFrame {
 		contentPane.add(btnIniciarServidor);
 		
 		JLabel lblPorta = new JLabel("Porta:");
-		lblPorta.setBounds(326, 251, 46, 14);
+		lblPorta.setBounds(343, 255, 46, 14);
 		contentPane.add(lblPorta);
 		
 		//MOSTRA A PORTA EM QUE ESTA FEITA A CONEXAO
 		textPorta = new JTextField();
 		textPorta.setEditable(false);
-		textPorta.setBounds(362, 251, 86, 20);
+		textPorta.setBounds(399, 251, 86, 20);
 		contentPane.add(textPorta);
 		textPorta.setColumns(10);
 		
@@ -118,7 +118,7 @@ public class ServidorGUI extends JFrame {
 				
 			}
 		});
-		btnEncerrarServidor.setBounds(172, 251, 117, 23);
+		btnEncerrarServidor.setBounds(172, 251, 147, 23);
 		contentPane.add(btnEncerrarServidor);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane}));
 	} //FIM ENCERRAR SERVIDOR
