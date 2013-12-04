@@ -1,27 +1,17 @@
 package br.chat.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JSplitPane;
-import javax.swing.BoxLayout;
-import java.awt.GridLayout;
-import java.awt.Panel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JSpinner;
-import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
-import javax.swing.JList;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ClienteGUI extends JFrame {
 	private JTextField textField;
@@ -65,10 +55,18 @@ public class ClienteGUI extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnConectar = new JButton("Conectar");
+		btnConectar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnConectar.setBounds(261, 11, 89, 23);
 		Conectar.add(btnConectar);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnSair.setBounds(261, 44, 89, 23);
 		Conectar.add(btnSair);
 		
@@ -83,6 +81,10 @@ public class ClienteGUI extends JFrame {
 		listOnlines.setLayout(null);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAtualizar.setBounds(10, 363, 89, 23);
 		listOnlines.add(btnAtualizar);
 		
@@ -101,14 +103,26 @@ public class ClienteGUI extends JFrame {
 		panel.add(textArea_1);
 		
 		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEnviar.setBounds(10, 255, 89, 23);
 		panel.add(btnEnviar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLimpar.setBounds(109, 255, 89, 23);
 		panel.add(btnLimpar);
 		
 		JButton btnArquivo = new JButton("Escolher Arquivo");
+		btnArquivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnArquivo.setBounds(10, 289, 135, 23);
 		panel.add(btnArquivo);
 		
