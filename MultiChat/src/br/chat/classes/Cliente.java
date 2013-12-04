@@ -43,7 +43,9 @@ public class Cliente extends Thread{
 	public static void main(String[] args) {
 		try {
 			
-			Socket conexao = new Socket("127.0.0.1",2222);
+			Servidor servidor = new Servidor();
+			
+			Socket conexao = new Socket("127.0.0.1",servidor.porta);
 			PrintStream saida = new PrintStream(conexao.getOutputStream());
 			BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 			System.out.print("Digite o nome do Cliente: ");

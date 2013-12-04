@@ -10,10 +10,13 @@ import org.xml.sax.Parser;
 
 public class Servidor extends Thread {
 	
+	public final int porta = 2222;
 	//instancia de clientes
 	private static Vector clientes;
 	private Socket conexao; //cria o socket
 	private String nomeCliente; //nome dado ao cliente
+	private String msServer1;
+	private String msServer2;
 	
 	//Construtor do SOCKET
 	public Servidor (Socket s) {
@@ -39,6 +42,7 @@ public class Servidor extends Thread {
 			nomeCliente = entrada.readLine();
 			if (nomeCliente == null) {return;}
 			System.out.println("O cliente "+ nomeCliente + " está conectado");
+			setMsServer1("O cliente "+ nomeCliente + " está conectado");
 			clientes.add(saida); //cliente adicionado ao vetor de clientes
 			
 			String linha = entrada.readLine();
@@ -59,7 +63,6 @@ public class Servidor extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	private void sendToAll(PrintStream saida, String acao, String linha) {
@@ -101,14 +104,14 @@ public class Servidor extends Thread {
 		
 
 		clientes = new Vector ();
+	
 		
 		try {
-			ServerSocket s = new ServerSocket(2222);
+			ServerSocket s = new ServerSocket(porta);
 			
 			while (true) {
-				System.out.println("Aguardando alguma conexão...");
+				System.out.println("Aguardando conexão...");
 				Socket conexao = s.accept();
-				System.out.println("O "+ nomeCliente +" conectou...");
 				Thread t = new Servidor(conexao);
 				t.start();
 			             }
@@ -118,5 +121,29 @@ public class Servidor extends Thread {
 		
 	
 		
+	}
+
+	public String getMsServer1() {
+		return msServer1;
+	}
+
+	public void setMsServer1(String msServer1) {
+		this.msServer1 = msServer1;
+	}
+
+	public String getMsServer2() {
+		return msServer2;
+	}
+
+	public void setMsServer2(String msServer2) {
+		this.msServer2 = msServer2;
+	}
+	
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+	
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 }

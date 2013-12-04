@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.net.ServerSocket;
 
 public class ServidorGUI extends JFrame {
 
@@ -33,7 +34,8 @@ public class ServidorGUI extends JFrame {
 	private static final long serialVersionUID = -2552352692523803942L;
 	private JPanel contentPane;
 	private JTextField textPorta;
-
+	
+	Servidor servidor = new Servidor();
 	/**
 	 * Launch the application.
 	 */
@@ -63,9 +65,19 @@ public class ServidorGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//INICIO FRAME MENSAGENS SERVIDOR
 		JTextArea yConn = new JTextArea();
 		yConn.setBounds(5, 5, 480, 235);
 		contentPane.add(yConn);
+		String  nomeCliente = servidor.getNomeCliente();
+		servidor.setNomeCliente(nomeCliente);
+		System.out.println("teste "+nomeCliente);
+		if (servidor.getNomeCliente() != null ) {
+		yConn.setText(servidor.getNomeCliente());
+		}
+		//FIM FRAME MENSAGENS SERVIDOR
+		
+		//BTNINICIAR SERVIDOR
 		JButton btnIniciarServidor = new JButton("Iniciar Servidor");
 		btnIniciarServidor.addActionListener(new ActionListener() {
 			//ACAO DO BOTAO INICIAR SERVIDOR
@@ -84,11 +96,31 @@ public class ServidorGUI extends JFrame {
 		lblPorta.setBounds(326, 251, 46, 14);
 		contentPane.add(lblPorta);
 		
+		//MOSTRA A PORTA EM QUE ESTA FEITA A CONEXAO
 		textPorta = new JTextField();
 		textPorta.setEditable(false);
 		textPorta.setBounds(362, 251, 86, 20);
 		contentPane.add(textPorta);
 		textPorta.setColumns(10);
+		
+		Servidor servidor = new Servidor();
+		textPorta.setText(Integer.toString(servidor.porta));
+		//FIM DA AREA DA PORTA
+		
+		//INICIO AREA BOTAO ENCERRAR O SERVIDOR
+		JButton btnEncerrarServidor = new JButton("Encerrar Servidor");
+		btnEncerrarServidor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Servidor servidor = new Servidor();
+				//servidor.stop();
+				servidor.currentThread().interrupted();
+				
+			}
+		});
+		btnEncerrarServidor.setBounds(172, 251, 117, 23);
+		contentPane.add(btnEncerrarServidor);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane}));
-	}
+	} //FIM ENCERRAR SERVIDOR
+
 }
